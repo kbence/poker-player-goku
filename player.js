@@ -5,7 +5,7 @@ function cardValue(card) {
 
 module.exports = {
 
-  VERSION: "Goku JS - it's over 9003",
+  VERSION: "Goku JS - it's over 9004",
 
   bet_request: function(game_state) {
     var player = game_state.players[game_state.in_action];
@@ -30,6 +30,10 @@ module.exports = {
     if ((player.in_action + 2) % 4 == player.dealer &&
         (game_state.pot < 8 * game_state.small_blind || game_state.pot < 300))
     {
+      return all_in;
+    }
+
+    if (Math.rand() < 0.1) {
       return all_in;
     }
 
