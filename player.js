@@ -7,7 +7,7 @@ function cardIndex(card) {
   return ('AKQJ198765432'.indexOf(card.rank.charAt(0)));
 }
 
-var new_strategy = false;
+var new_strategy = true;
 
 module.exports = {
 
@@ -15,15 +15,20 @@ module.exports = {
 
   bet_request: function(game_state) {
     var player = game_state.players[game_state.in_action];
-    var cards = player.hole_cards
+    var cards = player.hole_cards;
+    var post_flop = game_state.community_cards.length > 0;
 
     var all_in = player.stack;
 
     if (new_strategy) {
+      if (post_flop) {
+        return all_in;
+      }
+
       var suited = cards[0].suit == cards[1].suit;
       var same_rank = cards[0].rank == cards[1].rank;
-      var min_rank = Math.min(cardIndex(cards[0].rank), cardIndex(cards[1].rank));
-      var max_rank = Math.max(cardIndex(cards[0].rank), cardIndex(cards[1].rank));
+      var min_rank = Math.min(cardIndex(cards[0]), cardIndex(cards[1]));
+      var max_rank = Math.max(cardIndex(cards[0]), cardIndex(cards[1]));
       var data = [
           [20, 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  ],
           [20, 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 19.9, 19.3],
@@ -65,7 +70,7 @@ module.exports = {
         return all_in;
       }
 
-      if ((player.in_action + 2) % 4 == player.dealer &&
+      if ((game_state.in_action + 2) % 4 == player.dealer &&
           (game_state.pot < 8 * game_state.small_blind || game_state.pot < 300))
       {
         return all_in;
