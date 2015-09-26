@@ -62,6 +62,7 @@ function generateGameState() {
     "small_blind":10,
     "orbits":0,
     "dealer":0,
+    "minimum_raise": 5,
     "community_cards": randomCommunityCards(),
     "current_buy_in":50,
     "in_action": 0,

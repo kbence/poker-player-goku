@@ -1,3 +1,4 @@
+log = console.error;
 
 function cardValue(card) {
   return 2 + ('234567891JQKA'.indexOf(card.rank.charAt(0)));
@@ -42,7 +43,7 @@ function groupBy(list, key) {
   }, {});
 }
 
-var new_strategy = false;
+var new_strategy = true;
 
 module.exports = {
 
@@ -89,19 +90,21 @@ module.exports = {
       } else {
         var hand = rankHand(game_state);
         var multipliers = {
-          pair: 2,
-          three: 3,
-          poker: 10,
-          max: 10
+          pair: 20,
+          three: 30,
+          poker: 100,
+          max: 100
         }
 
         if (hand) {
-          return Math.floor(
+          result = Math.floor(
             Math.max(
-              game_state.minimum_raise,
+              game_state.current_buy_in - player.bet + game_state.minimum_raise,
               multipliers[hand] * player.stack / multipliers.max
             )
           );
+
+          return result;
         }
       }
     } else {
