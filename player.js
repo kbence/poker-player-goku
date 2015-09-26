@@ -11,6 +11,10 @@ module.exports = {
       return 10000;
     }
 
+    if (cards[0].rank == cards[1].rank) {
+      return (int)(player.stack / 2);
+    }
+
     return 0;
   },
 
