@@ -47,7 +47,7 @@ function groupBy(list, key) {
 
 module.exports = {
 
-  VERSION: "Goku JS - Super Saiyan God Super Saiyan",
+  VERSION: "Goku JS - Super Saiyan God Super Saiyan (Kamehameha version)",
 
   bet_request: function(game_state) {
     var player = game_state.players[game_state.in_action];
