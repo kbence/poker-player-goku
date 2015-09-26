@@ -17,8 +17,8 @@ curl -d 'action=bet_request&game_state={
           "rank": "A",
           "suit": "diamonds"
         }, {
-          "rank": "A",
-          "suit": "hearts"
+          "rank": "3",
+          "suit": "diamonds"
         }
       ],
       "version":"Version name 1",
