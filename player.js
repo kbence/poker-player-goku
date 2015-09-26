@@ -12,7 +12,7 @@ module.exports = {
     }
 
     if (cards[0].rank == cards[1].rank) {
-      return (int)(player.stack / 2);
+      return Math.floor(player.stack / 2);
     }
 
     if ((player.in_action + 2) % 4 == player.dealer &&
