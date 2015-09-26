@@ -7,14 +7,15 @@ function cardIndex(card) {
   return ('AKQJ198765432'.indexOf(card.rank.charAt(0)));
 }
 
+var new_strategy = true;
+
 module.exports = {
 
-  VERSION: "Goku JS - it's over 9004",
+  VERSION: "Goku JS - it's over 9004 (" + (new_strategy ? 'new' : 'old') + ')',
 
   bet_request: function(game_state) {
     var player = game_state.players[game_state.in_action];
     var cards = player.hole_cards
-    var new_strategy = false;
 
     var all_in = player.stack;
 
