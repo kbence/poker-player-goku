@@ -1,11 +1,11 @@
 package player
 
-import "github.com/lean-poker/poker-player-go/leanpoker"
+import "github.com/kbence/poker-player-goku/leanpoker"
 
 const VERSION = "Default Go folding player"
 
 func BetRequest(state *leanpoker.Game) int {
-	return 0
+	return 1000
 }
 
 func Showdown(state *leanpoker.Game) {
