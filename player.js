@@ -7,7 +7,7 @@ function cardIndex(card) {
   return ('AKQJ198765432'.indexOf(card.rank.charAt(0)));
 }
 
-var new_strategy = true;
+var new_strategy = false;
 
 module.exports = {
 
