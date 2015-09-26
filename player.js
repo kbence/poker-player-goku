@@ -85,17 +85,23 @@ module.exports = {
           mult = data[min_rank][max_rank];
         }
 
-        return Math.floor(mult * 2 * game_state.small_blind);
+        return Math.floor(mult * game_state.small_blind);
       } else {
         var hand = rankHand(game_state);
         var multipliers = {
           pair: 2,
           three: 3,
-          poker: 10
+          poker: 10,
+          max: 10
         }
 
         if (hand) {
-          return Math.max(game_state.minimum_raise, multipliers[hand] * player.stack / 10);
+          return Math.floor(
+            Math.max(
+              game_state.minimum_raise,
+              multipliers[hand] * player.stack / multipliers.max
+            )
+          );
         }
       }
     } else {
