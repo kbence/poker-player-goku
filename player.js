@@ -21,10 +21,6 @@ module.exports = {
     var all_in = player.stack;
 
     if (new_strategy) {
-      if (post_flop) {
-        return all_in;
-      }
-
       var suited = cards[0].suit == cards[1].suit;
       var same_rank = cards[0].rank == cards[1].rank;
       var min_rank = Math.min(cardIndex(cards[0]), cardIndex(cards[1]));
