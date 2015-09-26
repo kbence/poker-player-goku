@@ -46,7 +46,7 @@ var new_strategy = true;
 
 module.exports = {
 
-  VERSION: "Goku JS - it's over 9004 (" + (new_strategy ? 'new' : 'old') + ')',
+  VERSION: "Goku JS - it's over 9005 (" + (new_strategy ? 'new' : 'old') + ')',
 
   bet_request: function(game_state) {
     var player = game_state.players[game_state.in_action];
