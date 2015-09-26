@@ -23,7 +23,7 @@ module.exports = {
       var suited = cards[0].suit == cards[1].suit;
       var same_rank = cards[0].rank == cards[1].rank;
       var min_rank = Math.min(cardIndex(cards[0].rank), cardIndex(cards[1].rank));
-      var max_rank = Math.min(cardIndex(cards[0].rank), cardIndex(cards[1].rank));
+      var max_rank = Math.max(cardIndex(cards[0].rank), cardIndex(cards[1].rank));
       var data = [
           [20, 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  ],
           [20, 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 20  , 19.9, 19.3],
