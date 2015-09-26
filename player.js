@@ -49,7 +49,7 @@ module.exports = {
         mult = data[min_rank][max_rank];
       }
 
-      return Math.floor(mult * 2 * game_state.small_blind);
+      return Math.floor(mult * 2 * game_state.small_blind) - game_state.current_buy_in;
 
     } else {
       if ('AK'.indexOf(cards[0].rank) != -1 && 'AK'.indexOf(cards[1].rank) != -1) {
