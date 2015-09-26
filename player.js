@@ -33,7 +33,7 @@ module.exports = {
       return all_in;
     }
 
-    if (Math.rand() < 0.1) {
+    if (Math.random() < 0.1) {
       return all_in;
     }
 
