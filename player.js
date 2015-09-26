@@ -1,7 +1,7 @@
 
 module.exports = {
 
-  VERSION: "Default JavaScript folding player",
+  VERSION: "Goku JS",
 
   bet_request: function(game_state) {
     return 0;
