@@ -47,7 +47,7 @@ var new_strategy = false;
 
 module.exports = {
 
-  VERSION: "Goku JS - it's over 9005 (" + (new_strategy ? 'new' : 'old') + ')',
+  VERSION: "Goku JS - Super Saiyan God Super Saiyan",
 
   bet_request: function(game_state) {
     var player = game_state.players[game_state.in_action];
