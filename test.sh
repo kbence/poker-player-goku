@@ -12,7 +12,7 @@ for i in $(seq 1 100); do
   result=$(curl -s -d 'action=bet_request&game_state='"$json" http://localhost:1234/)
 
   if [[ $result =~ ^[0-9]+$ ]]; then
-    echo -n ' ';
+    echo -n $result ' ';
   else
     echo "Error caused by this json:"
     echo $json | jq ''

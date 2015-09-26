@@ -33,6 +33,10 @@ function randomCommunityCards() {
   return commCards;
 }
 
+function randomStatus() {
+  pick(['active', 'out']);
+}
+
 function generateGameState() {
   return {
     "players":[
@@ -49,6 +53,24 @@ function generateGameState() {
         "name":"Player 2",
         "stack":1000,
         "status":"active",
+        "bet":0,
+        "hole_cards":[],
+        "version":"Version name 2",
+        "id":1
+      },
+      {
+        "name":"Player 3",
+        "stack":1000,
+        "status":"active",
+        "bet":0,
+        "hole_cards":[],
+        "version":"Version name 2",
+        "id":1
+      },
+      {
+        "name":"Player 4",
+        "stack":1000,
+        "status":randomStatus(),
         "bet":0,
         "hole_cards":[],
         "version":"Version name 2",

@@ -56,6 +56,10 @@ module.exports = {
 
     var all_in = player.stack;
 
+    if (game_state.players[3].status != 'active') {
+      new_strategy = false;
+    }
+
     if (new_strategy) {
       if (!post_flop) {
         var suited = cards[0].suit == cards[1].suit;
