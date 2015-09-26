@@ -8,8 +8,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/kbence/poker-player-goku/leanpoker"
-	"github.com/kbence/poker-player-goku/player"
+	"./leanpoker"
+	"./player"
 )
 
 func main() {
@@ -18,13 +18,9 @@ func main() {
 		port = 4711
 	}
 
-	log.Printf("Line 21")
-
 	http.HandleFunc("/", handleRequest)
 	if err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil); err != nil {
-		log.Printf("Line 25")
 		log.Fatal(err)
-		log.Printf("Line 27")
 	}
 }
 

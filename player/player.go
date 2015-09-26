@@ -1,6 +1,6 @@
 package player
 
-import "github.com/kbence/poker-player-goku/leanpoker"
+import "../leanpoker"
 
 const VERSION = "Goku v0.0.1"
 
