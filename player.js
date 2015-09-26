@@ -1,7 +1,7 @@
 
 module.exports = {
 
-  VERSION: "Goku JS",
+  VERSION: "Goku JS - it's over 9000",
 
   bet_request: function(game_state) {
     var player = game_state.players[game_state.in_action];
