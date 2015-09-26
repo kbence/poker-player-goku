@@ -43,7 +43,7 @@ function groupBy(list, key) {
   }, {});
 }
 
-var new_strategy = true;
+var new_strategy = false;
 
 module.exports = {
 
