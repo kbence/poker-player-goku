@@ -43,7 +43,7 @@ function groupBy(list, key) {
   }, {});
 }
 
-var new_strategy = false;
+
 
 module.exports = {
 
@@ -56,8 +56,14 @@ module.exports = {
 
     var all_in = player.stack;
 
-    if (game_state.players[3].status != 'active') {
+    var new_strategy = Math.random() < 0.5;
+    var ferki_out = game_state.players[3].status != 'active';
+    var juci_out = game_state.players[2].status != 'active';
+    if (ferki_out && !juci_out) {
       new_strategy = false;
+    }
+    if (!ferki_out && juci_out) {
+      new_strategy = true;
     }
 
     if (new_strategy) {

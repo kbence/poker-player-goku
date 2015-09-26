@@ -61,7 +61,7 @@ function generateGameState() {
       {
         "name":"Player 3",
         "stack":1000,
-        "status":"active",
+        "status":randomStatus(),
         "bet":0,
         "hole_cards":[],
         "version":"Version name 2",
