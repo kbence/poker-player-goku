@@ -47,7 +47,7 @@ function groupBy(list, key) {
 
 module.exports = {
 
-  VERSION: "Goku JS - Super Saiyan God Super Saiyan (Kamehameha version)",
+  VERSION: "Goku JS - Super Saiyan God Super Saiyan (Kamehameha version) with Picolo",
 
   bet_request: function(game_state) {
     var player = game_state.players[game_state.in_action];
@@ -59,12 +59,21 @@ module.exports = {
     var new_strategy = Math.random() < 0.5;
     var ferki_out = game_state.players[3].status != 'active';
     var juci_out = game_state.players[2].status != 'active';
+
     if (ferki_out && !juci_out) {
       new_strategy = false;
     }
     if (!ferki_out && juci_out) {
       new_strategy = true;
     }
+
+    var in_game = 0;
+    for(var i = 1; i < 4; i++){
+      in_game += game_state.players[2].status != 'active' ? 0 : 1;
+    }
+    var in_heads_up = in_game < 2;
+    var short_stack = (player.stack + player.bet) < 2000;
+
 
     if (new_strategy) {
       if (!post_flop) {
@@ -96,7 +105,12 @@ module.exports = {
           mult = data[min_rank][max_rank];
         }
 
-        return Math.floor(mult * game_state.small_blind);
+        result = Math.floor(mult * game_state.small_blind);
+
+        if (!in_heads_up && !short_stack) {
+          return result / 3;
+        }
+        return result;
       } else {
         var hand = rankHand(game_state);
         var multipliers = {
@@ -114,10 +128,15 @@ module.exports = {
             )
           );
 
+          if (!in_heads_up && !short_stack) {
+            return result / 3;
+          }
           return result;
         }
       }
     } else {
+      if (!in_heads_up && !short_stack) { return 0; }
+
       if ('AK'.indexOf(cards[0].rank) != -1 && 'AK'.indexOf(cards[1].rank) != -1) {
         return all_in;
       }
